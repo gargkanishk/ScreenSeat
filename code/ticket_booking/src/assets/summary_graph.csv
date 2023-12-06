@@ -1,0 +1,7 @@
+show_name,total_bookings,avg_rating,total_revenue,total_tickets,avg_ticket_price,avg_tickets_per_booking
+Jawan,2,3.0,2400,6.0,1200.0,3.0
+Tu Joothi Mai Makkar,10,2.5625,157800,789.0,15780.0,78.9
+The Pope's Exorcist,5,3.5,3900,13.0,780.0,2.6
+John Wick 5,3,0.0,50000,200.0,16666.666666666668,66.66666666666667
+sample show,1,3.0,7500,50.0,7500.0,50.0
+sample show 5,0,0.0,0,0.0,0.0,0.0
