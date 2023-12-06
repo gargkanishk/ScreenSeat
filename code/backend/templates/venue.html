@@ -1,0 +1,67 @@
+{% extends 'user_navbar.html' %}
+
+{% block title %}{{ venue.venue_name }} - Venue{% endblock %}
+{% block title2 %}{{ venue.venue_name }} - Venue{% endblock %}
+
+{% block content %}
+    <div class="container venue-container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>{{ venue.venue_name }}</h2>
+                <p>{{ venue.venue_description }}</p>
+                <p><strong>Location:</strong> {{ venue.venue_location }}</p>
+                <p><strong>Capacity:</strong> {{ venue.venue_capacity }}</p>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='images/venue-placeholder.jpg') }}" alt="Venue Image" class="img-fluid">
+            </div>
+        </div>
+        <hr>
+        <h3>Shows:</h3>
+        {% if shows %}
+            <div class="row">
+                {% for show in shows %}
+                    <div class="col-md-4">
+                        <div class="card show-card">
+                            <img src="{{ url_for('static', filename='images/show-placeholder.jpg') }}" class="card-img-top" alt="Show Image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ show.show_name }}</h5>
+                                <p class="card-text">{{ show.show_date }}</p>
+                                <p class="card-text"><strong>Price:</strong> {{ show.show_price }}</p>
+                                <p class="card-text"><strong>Tags:</strong> {{ show.show_tags }}</p>
+                                {% if show.show_available_tickets > 0 %}
+                                    <a href="{{ url_for('book_show', show_id=show.id) }}" class="btn btn-primary">Book Now</a>
+                                {% else %}
+                                    <button class="btn btn-danger" disabled>Tickets Unavailable</button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No shows found for this venue.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block style %}
+    <style>
+        .venue-container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+        }
+
+        .show-card {
+            margin-bottom: 30px;
+        }
+
+        .show-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+{% endblock %}

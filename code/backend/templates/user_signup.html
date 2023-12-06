@@ -1,0 +1,45 @@
+{% extends "user_navbar.html" %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block title2 %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="container signup">
+    <h2>Sign Up</h2>
+    <form action="{{ url_for('user_signup') }}" method="post">
+        <div class="form-group ">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" class="form-control" id="confirm_password" placeholder="Confirm password" name="confirm_password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    <br>
+    <p>Already registered? <a href="{{ url_for('user_login') }}">Login</a></p>
+</div>
+{% endblock %}
+{% block style %}
+
+<style>
+.signup {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+</style>
+{% endblock %}

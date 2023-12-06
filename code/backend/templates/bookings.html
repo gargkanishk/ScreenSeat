@@ -1,0 +1,64 @@
+{% extends 'user_navbar.html' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block title2 %}{{ page_title }}{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <h1 class="mb-4">My Bookings</h1>
+  {% if bookings %}
+  {% for booking, (show, venue) in bookings.items() %}
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ show.show_name }}</h5>
+          <div class="row">
+            <div class="col-md-6">
+              <p class="card-text"><strong>Venue:</strong> {{ venue.venue_name }}</p>
+              <p class="card-text"><strong>Date:</strong> {{ show.show_date }}</p>
+              <p class="card-text"><strong>Time:</strong> {{ show.show_time }}</p>
+            </div>
+            <div class="col-md-6">
+              <p class="card-text"><strong>Tickets:</strong> {{ booking.tickets }}</p>
+              <p class="card-text"><strong>Total Price:</strong> {{ booking.total_price }}</p>
+              {% if booking.show_rating == none %}
+                <a href="{{ url_for('rate_show', booking_id=booking.id) }}" class="btn btn-primary float-right">Rate Show</a>
+              {% else %}
+                <p class="card-text"><strong>Rating:</strong> {{ booking.show_rating }}/5</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>You haven't booked any shows yet.</p>
+  {% endif %}
+</div>
+<style>
+.card {
+  border: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+
+.card-text {
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background-color: #2d3e50;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #34495e;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'admin_navbar.html' %}
+
+{% block title %}{{page_title}}{% endblock %}
+{% block title2 %}{{page_title}}{% endblock %}
+
+{% block content %}
+<br>
+<div class="container mt-4">
+    <h3>Statistics</h3>
+    <br>
+    {{ table|safe}}
+</div>
+
+<div class="container mt-4">
+  <h3>Graphs</h3>
+    <img src="{{url_for('static', filename='images/summary_graph.png')}}" alt="summary_graph">
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+
+

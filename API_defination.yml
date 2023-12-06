@@ -1,0 +1,25 @@
+name: My Movie Manager
+version: 1.0.0
+description: A movie venue and show booking application
+
+dependencies:
+  flask: ^2.0.1
+  pandas: ^1.2.4
+  sqlalchemy: ^1.4.23
+  matplotlib: ^3.4.3
+
+apiVersion: 1
+
+apis:
+  - name: Bootstrap
+    url: https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
+    description: A popular CSS framework for building responsive websites.
+  - name: jQuery
+    url: https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
+    description: A fast, small, and feature-rich JavaScript library.
+  - name: Popper.js
+    url: https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js
+    description: A JavaScript library used to position poppers (tooltips, popovers, etc.)
+  - name: Font Awesome
+    url: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css
+    description: A popular icon set and toolkit.

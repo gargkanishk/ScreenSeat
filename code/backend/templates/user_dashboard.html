@@ -1,0 +1,100 @@
+{% extends 'user_navbar.html' %}
+
+{% block title %}{{page_title}}{% endblock %}
+
+{% block title2 %}{{page_title}}{% endblock %}
+
+{% block content %}
+<br><br>
+<!-- if venues or shows are empty then display a message-->
+{% if not venues %}
+<div class="container empty-message">
+    <h5>No venues available, please check back later</h5>
+    <hr>
+{% endif %}
+<div id="main-user-container">
+{% for venue in venues %}
+{% if not venue.shows %}
+<div class="venue-container">
+    <h3>{{ venue.venue_name }}</h3>
+    <p>No shows available.</p>
+</div>
+{% else %}
+<div class="venue-container">
+    <h3>{{ venue.venue_name }}</h3>
+    <br>
+    <div class="show-container">
+        {% for show in venue.shows %}
+        <div class="show-card">
+            <h4>{{ show.show_name }}</h4>
+            <p>{{ show.show_date }} | {{show.show_time}}</p>
+            <a href="{{ url_for('book_show', show_id=show.id) }}" class="book-now-btn">Book Now</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endblock %}
+
+{% block style %}
+<style>
+    /* add a margin to right and left of the container */
+    #main-user-container {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .empty-message {
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .venue-container {
+        width: 100%;
+        background-color: #f7f7f7;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .show-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .show-card {
+        width: 250px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .show-card h4 {
+        margin-bottom: 10px;
+    }
+
+    .show-card p {
+        margin-bottom: 5px;
+    }
+
+    .book-now-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .book-now-btn:hover {
+        background-color: #0062cc;
+    }
+
+</style>
+{% endblock %}

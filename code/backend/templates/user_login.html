@@ -1,0 +1,55 @@
+{% extends "user_navbar.html" %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block title2 %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="container login">
+    <h2>Login</h2>
+    <br>
+    <form action="{{ url_for('user_login') }}" method="post">
+        <div class="form-group ">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        
+    </form>
+     <br>
+     <p>Not registered? <a href="{{ url_for('user_signup') }}">Signup</a></p>
+        <br><br><br>
+        <p id="admin-ask-text">Are you an admin? <a href="{{ url_for('admin_login') }}">Login</a></p>
+
+
+</div>
+{% endblock %}
+{% block style %}
+<style>
+#admin-ask-text {
+    text-align: center;
+}
+
+.login {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 500px;
+  }
+  
+  
+  .form-group {
+    margin-bottom: 20px;
+
+  }
+</style>
+  
+  {% endblock %}
+
+
+

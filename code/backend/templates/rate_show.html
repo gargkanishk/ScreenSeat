@@ -1,0 +1,24 @@
+{% extends 'user_navbar.html' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+{% block title2 %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>{{ show.show_name }}</h1>
+  <h4>Rate this Show</h4>
+  <form method="POST" action="{{url_for('rate_show', booking_id = booking.id)}}">
+    <div class="form-group">
+      <label for="show_rating">Rating:</label>
+      <select class="form-control" id="show_rating" name="show_rating">
+        <option value="5">5 stars</option>
+        <option value="4">4 stars</option>
+        <option value="3">3 stars</option>
+        <option value="2">2 stars</option>
+        <option value="1">1 star</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

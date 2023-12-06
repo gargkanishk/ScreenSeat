@@ -1,0 +1,46 @@
+{% extends "admin_navbar.html" %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block title2 %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="container login">
+    <h2>Admin Login</h2>
+    <form action="{{ url_for('admin_login') }}" method="post">
+        <div class="form-group ">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        
+    </form>
+  
+
+</div>
+{% endblock %}
+{% block style %}
+<style>
+.login {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 500px;
+  }
+  
+  
+  .form-group {
+    margin-bottom: 20px;
+
+  }
+</style>
+  
+  {% endblock %}
+
+
+
