@@ -14,7 +14,6 @@
 </ul>
 
 <h2>Functionality</h2>
-<h3>Base Requirements</h3>
 <ul>
     <li>User Signup and Login</li>
     <li>Mandatory Admin Login with RBAC</li>
