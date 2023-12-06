@@ -3,9 +3,6 @@
 <h1>Project Overview</h1>
 <p>SelectSeat is a comprehensive ticket booking system for movies, designed to facilitate easy and efficient show and theatre management. This system is crafted with a robust stack of technologies and offers a seamless user experience for both general users and administrators.</p>
 
-<h1>App Demonstration Video</h1>
-<a>https://drive.google.com/file/d/1SrUGpVE9KDu20OMjktB4jvT3Z1LhWLAl/view?usp=share_link</a>
-
 <h2>Technology Stack</h2>
 <ul>
     <li>Frontend: VueJS for UI, optionally using VueJS Advanced with CLI. Jinja2 templates for dynamic content rendering.</li>
